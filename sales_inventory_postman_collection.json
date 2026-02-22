@@ -1,0 +1,294 @@
+{
+  "info": {
+    "_postman_id": "ec6d3680-7609-4b90-b36b-1b7c43fc601a",
+    "name": "Sales Order & Inventory Lite",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52595396",
+    "_collection_link": "https://go.postman.co/collection/52595396-ec6d3680-7609-4b90-b36b-1b7c43fc601a?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "List Products",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Create Product",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"sku\": \"BRK-001\",\r\n  \"name\": \"Brake Pad\",\r\n  \"description\": \"High quality brake pad\",\r\n  \"price\": 500.00\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/products/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "products",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Individual Product",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/products/1/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "products",
+            "1",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Inventory",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"dealer\": 1,\r\n  \"items\": [\r\n    {\r\n      \"product\": 1,\r\n      \"quantity\": 10\r\n    }\r\n  ]\r\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/inventory/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "inventory",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Inventory",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"product\": 1,\r\n  \"quantity\": 100\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/inventory/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "inventory",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Inventory",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"product\": 1,\r\n  \"quantity\": 120\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/inventory/1/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "inventory",
+            "1",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Dealers",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"dealer\": 1,\r\n  \"items\": [\r\n    {\r\n      \"product\": 1,\r\n      \"quantity\": 10\r\n    }\r\n  ]\r\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/dealers/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "dealers",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Dealer",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"ABC Motors\",\r\n  \"email\": \"abc@example.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"address\": \"Bangalore\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/dealers/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "dealers",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Draft Orders",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"dealer\": 1,\r\n  \"items\": [\r\n    {\r\n      \"product\": 1,\r\n      \"quantity\": 10\r\n    }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/orders/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "orders",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Confirm Orders",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/orders/1/confirm/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "orders",
+            "1",
+            "confirm",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Deliver Order",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/orders/1/deliver/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "orders",
+            "1",
+            "deliver",
+            ""
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": ""
+    }
+  ]
+}
